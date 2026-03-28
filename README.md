@@ -38,6 +38,18 @@ entity_linking/data/
                     ├── umls_term_id_pairs_combined.json
                     └── umls_id_to_term_map.json 
 ```
+###  Download LLM model 
+
+You can download the model used in this pipeline from from Hugging Face:
+
+``` bash
+pip install -U huggingface_hub
+huggingface-cli login
+huggingface-cli download deepseek-ai/DeepSeek-R1-Distill-Qwen-32B --local-dir DeepSeek-R1-Distill-Qwen-32B
+```
+The path to the model has to be adjusted in [./FDA_03_Extract_Indications_LLM.ipynb](./FDA_03_Extract_Indications_LLM.ipynb). You may also consider moving this logic out of the notebook into a standalone script for easier automation.
+
+> Note: This model is large (~60GB) and requires a GPU with sufficient memory to run. You can use a different model if you want.
 
 ## Step 1: Download and prepare FDA drug + label data
 
