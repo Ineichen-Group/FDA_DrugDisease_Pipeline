@@ -6,13 +6,35 @@ The pipeline itself is modular and can be adapted to other drug sets or used on 
 
 ## Setup
 
-Create the conda environment:
+### Create environments
+Create the conda environments:
+
+```
+conda env create -f torch_hf_environment.yml
+```
 
 ```
 conda env create -f vllm_environment.yml
 ```
 
-> **Note:** The `vllm` environment requires access to a GPU (CUDA-compatible) for running step 3.
+> **Note:** The `vllm` environment is used in Step 3. It requires access to a GPU (CUDA-compatible) for running step 3.
+
+### Download pre-computed data
+
+Download the named entity linking resources from [https://zenodo.org/records/19287944](https://zenodo.org/records/19287944). These files contain precomputed ontology embeddings and mappings required for drug and disease normalization
+
+After downloading, place them in the repository as follows:
+```
+entity_linking/data/
+                ├── mondo/
+                │   ├── embeddings/
+                │   ├── mondo_term_id_pairs.json
+                │   └── mondo_id_to_term_map.json
+                └── umls/
+                    ├── embeddings/
+                    ├── umls_term_id_pairs_combined.json
+                    └── umls_id_to_term_map.json 
+```
 
 ## Step 1: Download and prepare FDA drug + label data
 
