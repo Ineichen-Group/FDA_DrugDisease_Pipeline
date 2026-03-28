@@ -9,10 +9,10 @@ The pipeline itself is modular and can be adapted to other drug sets or used on 
 Create the conda environment:
 
 ```
-conda env create -f environment.yml
+conda env create -f vllm_environment.yml
 ```
 
-The `vllm` environment requires access to a GPU (CUDA-compatible) for running step 3.
+> **Note:** The `vllm` environment requires access to a GPU (CUDA-compatible) for running step 3.
 
 ## Step 1: Download and prepare FDA drug + label data
 
@@ -20,6 +20,8 @@ First, download the two openFDA datasets and save them in ./data:
 
 - [Drugs@FDA download](https://open.fda.gov/apis/drug/drugsfda/download/)
 - [Drug Label download](https://open.fda.gov/apis/drug/label/download/)
+
+> **Note:** The Drug Label dataset is split into multiple parts. All files must be downloaded to obtain a complete dataset.
 
 ### What happens in this step
 
