@@ -272,6 +272,29 @@ In the previous step, the pipeline kept only:
 
 This step uses an LLM to read that indication text and extract the diseases or clinically relevant conditions being treated.
 
+### Evaluation
+
+A manually annotated random sample is provided in [./data/fda_manual_valid_llm_indications/llm_indications_sample_50_manual.csv](./data/fda_manual_valid_llm_indications/llm_indications_sample_50_manual.csv).
+
+LLM outputs are compared to manual annotations in [./FDA_LLM_Disease_Eval.ipynb](./FDA_LLM_Disease_Eval.ipynb) using:
+
+- **Exact match**  
+  A predicted disease is counted as correct only if it exactly matches the manual annotation after normalization (lowercasing and trimming).  
+  Example:  
+  - manual: `severe pain`  
+  - LLM: `pain` → not a match  
+
+- **Fuzzy (partial) match**  
+  A predicted disease is counted as correct if there is a string overlap between prediction and annotation (based on substring matching after normalization).  
+  Example:  
+  - manual: `severe pain`  
+  - LLM: `pain` → match  
+
+Results (50 FDA applications):
+
+Exact: F1 = 0.669
+Fuzzy: F1 = 0.789
+
 ### 1. Load the local LLM
 
 The pipeline loads a locally stored instruction model with `vLLM` in offline mode. The model is `DeepSeek-R1-Distill-Qwen-32B`.
