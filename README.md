@@ -1,8 +1,8 @@
 # FDA_DrugDisease_Pipeline
 
 This project is part of a larger effort to track drugs from preclinical (animal) studies to clinical application. In this context, the FDA dataset is filtered to include only drugs overlapping with a separate preclinical dataset. The two files used for the downstream animal-to-human translation analysis are:
-- `df_ds_drugs_with_FDA_info.csv` - for Translation_01_Drug
-- `FDA_drug_disease_pairs_mapped_both.csv` - for Translation_02_Drug_Disease
+- [./out/df_ds_drugs_with_FDA_info.csv](./out/df_ds_drugs_with_FDA_info.csv) - for Translation_01_Drug 
+- [./out/FDA_drug_disease_pairs_mapped_both.csv](./out/FDA_drug_disease_pairs_mapped_both.csv) - for Translation_02_Drug_Disease
 
 
 The pipeline itself is modular and can be adapted to other drug sets or used on the full FDA dataset with minimal changes.
