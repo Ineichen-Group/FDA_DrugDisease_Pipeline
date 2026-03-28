@@ -21,7 +21,7 @@ conda env create -f vllm_environment.yml
 
 ### Download pre-computed data
 
-Download the named entity linking resources from [https://zenodo.org/records/19287944](https://zenodo.org/records/19287944). These files contain precomputed ontology embeddings and mappings required for drug and disease normalization
+Download the named entity linking resources from [https://zenodo.org/records/19287944](https://zenodo.org/records/19287944). These files contain precomputed ontology embeddings and mappings required for drug and disease normalization.
 
 After downloading, place them in the repository as follows:
 ```
